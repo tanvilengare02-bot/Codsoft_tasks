@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+ body {
+      font-family: Arial, sans-serif;
+      background-color: #2B2D42;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  .calculator {
+      background-color: #1E1F2E;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      width: 320px;
+
+    .display {
+      background-color: #0F1020;
+      color: #FFFFFF;
+      font-size: 32px;
+      text-align: right;
+      padding: 20px 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      height: 70px;
+      overflow-x: auto;
+      word-wrap: break-word;
+    }
+  .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+ button {
+      padding: 18px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #3A3D5C;
+      color: #FFFFFF;
+      transition: background-color 0.2s;
+    }
+ button:hover {
+      background-color: #4F537A;
+    }
+  .operator {
+      background-color: #EF8354;
+    }
+ .operator:hover {
+      background-color: #d96f43;
+    }
+  .equal {
+      background-color: #43AA8B;
+      grid-row: span 2;
+    }
+   .equal:hover {
+      background-color: #359276;
+    }
+  .clear {
+      background-color: #D62828;
+      grid-column: span 2;
+    }
+  .clear:hover {
+      background-color: #b51f1f;
+    }
+  .zero {
+      grid-column: span 2;
+    }
+
+  </style>
+</head>
+<body>
+<div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="appendValue('/')">÷</button>
+      <button class="operator" onclick="appendValue('*')">×</button>
+
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button class="operator" onclick="appendValue('-')">−</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button class="operator" onclick="appendValue('+')">+</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button class="equal" onclick="calculateResult()">=</button>
+
+      <button class="zero" onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+    </div>
+    </div>
+ <script>
+ let display = document.getElementById("display");
+ let resultShown = false;
+ function appendValue(value) {
+   if (resultShown) {
+        if (!isNaN(value) || value === ".") {
+          display.textContent = "";
+        }
+        resultShown = false;
+      }
+      if (display.textContent === "0" && value !== ".") {
+        display.textContent = value;
+      } else {
+        display.textContent += value;
+      }
+    }
+    function clearDisplay() {
+      display.textContent = "0";
+      resultShown = false;
+    }
+    function calculateResult() {
+      let expression = display.textContent;
+       try {
+        let result = eval(expression);
+
+        if (result.toString().includes(".")) {
+          result = parseFloat(result.toFixed(4));
+        }
+
+        display.textContent = result;
+        resultShown = true;
+
+      } catch (error) {
+        display.textContent = "Error";
+        resultShown = true;
+      }
+    }
+    document.addEventListener("keydown", function(event) {
+      const key = event.key;
+
+      if (!isNaN(key) || key === ".") {
+        appendValue(key);
+      } else if (["+", "-", "*", "/"].includes(key)) {
+        appendValue(key);
+      } else if (key === "Enter" || key === "=") {
+        calculateResult();
+      } else if (key === "Backspace") {
+        display.textContent = display.textContent.slice(0, -1);
+        if (display.textContent === "") {
+          display.textContent = "0";
+        }
+      } else if (key.toLowerCase() === "c") {
+        clearDisplay();
+      }
+    });
+</script>
+</body>
+</html>
