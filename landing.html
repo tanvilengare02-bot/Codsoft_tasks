@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiln & Comb Cafe</title>
+<style>
+
+  /* ---------- Basic reset ---------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    background-color: #4B3621;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  header nav a {
+    color: #ffffff;
+    margin: 0 12px;
+    font-size: 15px;
+  }
+
+  header nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* ---------- Hero Section ---------- */
+  .hero {
+    background-color: #F2E2CE;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: #C97B3D;
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+
+  /* ---------- Section Titles ---------- */
+  .section-title {
+    text-align: center;
+    font-size: 26px;
+    margin: 40px 0 25px 0;
+  }
+
+  /* ---------- About Section ---------- */
+  .about {
+    padding: 20px 40px 50px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  /* ---------- Menu Section (3 columns) ---------- */
+  .menu {
+    background-color: #FAF3EA;
+    padding: 20px 40px 50px 40px;
+  }
+
+  .menu-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .menu-box {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .menu-box h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .menu-box p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 10px;
+  }
+
+  .menu-box .price {
+    font-weight: bold;
+    color: #C97B3D;
+  }
+
+  /* ---------- Why Us Section (3 columns) ---------- */
+  .why {
+    padding: 20px 40px 50px 40px;
+  }
+
+  .why-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .why-box {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+
+  .why-box h3 {
+    margin-bottom: 8px;
+    font-size: 17px;
+  }
+
+  .why-box p {
+    font-size: 14px;
+    color: #666666;
+  }
+
+  /* ---------- Contact Section ---------- */
+  .contact {
+    background-color: #4B3621;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .contact p {
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background-color: #2E2115;
+    color: #cccccc;
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+  }
+
+  /* ---------- Mobile responsiveness ---------- */
+  @media (max-width: 600px) {
+    .menu-box, .why-box {
+      width: 100%;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <h1>Kiln & Comb Cafe</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+    <h2>Warm Bakes. Honest Coffee.</h2>
+    <p>Freshly baked bread, honey pastries, and slow-brewed coffee every day.</p>
+    <a class="btn" href="#menu">See Our Menu</a>
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section class="about" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>Kiln & Comb is a small neighbourhood cafe. We bake everything fresh every morning
+      and use honey sourced from local farms.</p>
+    <p>Our coffee is brewed slowly, one cup at a time, so it always tastes fresh.</p>
+  </section>
+
+  <!-- ================= MENU SECTION (3 columns) ================= -->
+  <section class="menu" id="menu">
+    <h2 class="section-title">Our Menu</h2>
+    <div class="menu-columns">
+
+      <div class="menu-box">
+        <h3>Honey Sourdough</h3>
+        <p>Fresh sourdough bread with a honey glaze.</p>
+        <p class="price">₹120</p>
+      </div>
+
+      <div class="menu-box">
+        <h3>Slow Brew Coffee</h3>
+        <p>Coffee brewed fresh, cup by cup.</p>
+        <p class="price">₹90</p>
+      </div>
+
+      <div class="menu-box">
+        <h3>Comb Croissant</h3>
+        <p>Buttery croissant filled with honeycomb.</p>
+        <p class="price">₹110</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= WHY US SECTION (3 columns) ================= -->
+  <section class="why" id="why">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="why-columns">
+
+      <div class="why-box">
+        <h3>Locally Sourced</h3>
+        <p>Honey and ingredients from nearby farms.</p>
+      </div>
+
+      <div class="why-box">
+        <h3>Baked Fresh Daily</h3>
+        <p>Nothing is kept overnight.</p>
+      </div>
+
+      <div class="why-box">
+        <h3>Made With Care</h3>
+        <p>Small batches, made by hand.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT SECTION ================= -->
+  <section class="contact" id="contact">
+    <h2 class="section-title" style="color:#ffffff;">Visit Us</h2>
+    <p>Shop No. 4, Bakers Lane, Mumbai, Maharashtra</p>
+    <p>Open Daily: 8:00 AM - 8:00 PM</p>
+    <p>Email: hello@kilnandcomb.in</p>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>&copy; 2026 Kiln & Comb Cafe. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
